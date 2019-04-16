@@ -1,6 +1,7 @@
 <?php
 $routerContainer = new \Aura\Router\RouterContainer();
 $router = $routerContainer->getMap();
+
 $router->get('home', '/', \NtSchool\Action\HomeAction::class);
 $router->get('products', '/products', \NtSchool\Action\ProductsAction::class);
 $router->get('single-product', '/single-product', \NtSchool\Action\ProductAction::class);
