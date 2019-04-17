@@ -17,7 +17,7 @@
             <!-- .row -->
 
 
-            <form enctype="application/x-www-form-urlencoded" class="form-horizontal">
+            <form enctype="application/x-www-form-urlencoded" class="form-horizontal" method="post">
 
                 <div class="row">
                     <div class="col-md-8">
@@ -58,7 +58,7 @@
                             <div class="row form-group">
                                 <label class="col-lg-3 control-label">Post Description: </label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" id="title" name="description">
+                                    <input type="text" class="form-control" id="desc" name="desc">
                                 </div>
                             </div>
 
