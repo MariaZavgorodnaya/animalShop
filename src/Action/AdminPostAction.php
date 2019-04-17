@@ -20,32 +20,39 @@ final class AdminPostAction
     public function __invoke(ServerRequestInterface $request)
     {
         //$slug = $request->getAttribute('slug');
-        $name = $_GET['title'] ?? '';
-        $desc = $_GET['description'] ?? '';
-        $content = $_GET['content'] ?? '';
-        $cover = $_GET['media'] ?? '';
-        $category_title = $_GET['category'] ?? '';
-        $category_slug = $_GET['category-slug'] ?? '';
 
+        //$name = $request->getAttribute('title') ?? '';
+       // $desc = $request->getAttribute('desc') ?? '';
+        //$content = $request->getAttribute('content') ?? '';
+        //$category_title = $request->getAttribute('category') ?? '';
+        //$category_slug = $request->getAttribute('category-slug') ?? '';
+        //$cover = 'cover';
 
+        var_dump($request->getMethod());
+if($request->getMethod() == 'POST') {
+    $name = $request->getUploadedFiles()->$_FILES['title'];
+    $content = $request->getUploadedFiles()->$_FILES['content'];
+    $desc = $request->getUploadedFiles()->$_FILES['desc'];
+    $cat = $request->getUploadedFiles()->$_FILES['category'];
+    $cat_slug = $request->getUploadedFiles()->$_FILES['category_slug'];
 
-        $posts = new Post;
-        $posts->title = $name;
-        $posts->content = $content;
-        $posts->description = $desc;
-        $posts->cover = $cover;
-        $posts->saveOrFail();
+    var_dump($request->getUploadedFiles());
+    $posts = new Post;
+    $posts->title = $name;
+    $posts->content = $content;
+    $posts->description = $desc;
+    $posts->cover = 'cover';
+    $posts->saveOrFail();
 
-        $categories = new Category();
-        $categories->title = $category_title;
-        $categories->key = $category_slug;
-        $categories->save();
-
-        /*$category_post = new Category_post();
-        $category_post->post_id = $posts->id;
-        $category_post->category_id = $categories->id;
-        $category_post->save();*/
-
+    $categories = new Category();
+    $categories->title = $cat;
+    $categories->key = $cat_slug;
+    $categories->save();
+}
+    /*$category_post = new Category_post();
+    $category_post->post_id = $posts->id;
+    $category_post->category_id = $categories->id;
+    $category_post->save();*/
 
         return $this->renderer->make('admin.admin-post',
             ['title' => 'Post',
@@ -53,4 +60,5 @@ final class AdminPostAction
                 'desc' => $desc,
                 'content' => $content]);
     }
+
 }

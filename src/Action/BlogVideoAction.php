@@ -2,7 +2,10 @@
 
 namespace NtSchool\Action;
 
+use Illuminate\Database\Capsule\Manager;
+use Illuminate\Pagination\Paginator;
 use Psr\Http\Message\ServerRequestInterface;
+use NtSchool\Model\Post;
 
 final class BlogVideoAction
 {
@@ -17,6 +20,8 @@ final class BlogVideoAction
     public function __invoke(ServerRequestInterface $request)
     {
 
-        return $this->renderer->make('blog.blog-video', ['title' => 'Video Post']);
+        $sidebar_posts = Post::take(3)->orderBy('id','DESC')->get();
+        return $this->renderer->make('blog.blog-video', ['title' => 'Video Post',
+            'sidebar_posts' => $sidebar_posts]);
     }
 }

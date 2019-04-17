@@ -26,13 +26,14 @@ final class BlogSidebarAction
         $results = Manager::select('select COUNT(*) as counter from posts');
         $pages = round($results[0]->counter/$postPerPage);
 
-        $posts = new Paginator(Post::skip($offset)->take($postPerPage)->get(),
+        $posts = new Paginator(Post::skip($offset)->take($postPerPage)->orderBy('id','DESC')->get(),
             $postPerPage,
             $page);
-
+        $sidebar_posts = Post::take($postPerPage)->orderBy('id','DESC')->get();
         return $this->renderer->make('blog.blog-sidebar',
             ['title' => 'Blog',
                 'posts' => $posts,
+                'sidebar_posts' => $sidebar_posts,
                 'pages' => $pages]);
     }
 }
