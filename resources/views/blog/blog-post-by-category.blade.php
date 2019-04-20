@@ -1,7 +1,8 @@
+
 @extends('blogLayout')
 
 @section('content')
-    <section class="ls section_padding_top_100 section_padding_bottom_100 columns_padding_25">
+<section class="ls section_padding_top_100 section_padding_bottom_100 columns_padding_25">
         <div class="container">
             <div class="row">
 
@@ -20,8 +21,8 @@
                                                     <div class="slide_description">
                                                         <div class="intro-layer" data-animation="fadeInUp">
                                                             <h2>
-                                                                Every Pet Deserves
-                                                                <strong>Celebrity Care</strong>
+Every Pet Deserves
+<strong>Celebrity Care</strong>
                                                             </h2>
                                                         </div>
                                                     </div>
@@ -45,8 +46,8 @@
                                                     <div class="slide_description">
                                                         <div class="intro-layer" data-animation="fadeInUp">
                                                             <h2>
-                                                                Qualified Personal
-                                                                <strong>Care For Your Pets</strong>
+Qualified Personal
+<strong>Care For Your Pets</strong>
                                                             </h2>
                                                         </div>
                                                     </div>
@@ -70,8 +71,8 @@
                                                     <div class="slide_description">
                                                         <div class="intro-layer" data-animation="fadeInUp">
                                                             <h2>
-                                                                Every Pet Deserves
-                                                                <strong>Celebrity Care</strong>
+Every Pet Deserves
+<strong>Celebrity Care</strong>
                                                             </h2>
                                                         </div>
                                                     </div>
@@ -97,7 +98,8 @@
 
                     <article
                             class="vertical-item content-padding big-padding post format-standard with_shadow rounded overflow-hidden">
-                        @forelse($posts as $post)
+@forelse($posts as $post)
+
                             <div class="item-media entry-thumbnail">
                                 <img src="{{$post->cover}}" alt="">
                             </div>
@@ -118,13 +120,10 @@
 
 
                                     </h4>
-                                    @forelse($post->categories as $category)
-                                        <span style="color:blue;">{{ $category->title }}</span>
-                                        @empty
-                                        <p>Нет категорий</p>
-                                @endforelse
-                                <!-- .entry-meta -->
 
+                                   <p>{{ $post->key }}</p>
+                                <!-- .entry-meta -->
+<p>{{ $post -> description }}</p>
                                 </header>
                                 <!-- .entry-header -->
 
@@ -133,9 +132,8 @@
 
                             </div>
                             <!-- .item-content.entry-content -->
-                        @empty
-                            <p>Нет постов</p>
-                        @endforelse
+                        @empty<p>Нет постов</p>
+@endforelse
                     </article>
 
                     <!-- .post -->
@@ -145,10 +143,10 @@
                         <div class="col-sm-12 text-center">
                             <ul class="pagination highlightlinks">
 
-                                @for($i = 0; $i <= $pages; $i++)
+@for($i = 0; $i <= $pages; $i++)
 
-                                    <li class="@if($i == $posts->currentPage()-1) active @endif"><a href="?page={{$i + 1}}">{{$i + 1}}</a></li>
-                                    @endfor
+                                    <li class="@if($i == $posts->currentPage()-1) active @endif"><a href="?page={{$i+1}}">{{$i+1}}</a></li>
+@endfor
                                 <!--<li>
                                     <a href="#">
                                         <span class="sr-only">Prev</span>

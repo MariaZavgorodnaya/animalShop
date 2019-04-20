@@ -18,7 +18,7 @@ $router->get('404', '/404', \NtSchool\Action\FaqAction::class);
 $router->get('blog-sidebar', '/blog', \NtSchool\Action\BlogSidebarAction::class);
 $router->get('post-blog', '/blog-post', \NtSchool\Action\BlogPostAction::class);
 $router->get('blog-video', '/blog-video', \NtSchool\Action\BlogVideoAction::class);
-
+$router ->get('blog-category', '/blog/{category}', \NtSchool\Action\BlogByCategoryAction::class);
 $router->get('contact', '/contacts', \NtSchool\Action\ContactAction::class);
 
 $router->get('admin', '/admin', \NtSchool\Action\AdminIndexAction::class);
