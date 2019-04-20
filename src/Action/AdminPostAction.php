@@ -33,8 +33,7 @@ if($request->getMethod() == 'POST') {
     $name = $request->getUploadedFiles()->$_FILES['title'];
     $content = $request->getUploadedFiles()->$_FILES['content'];
     $desc = $request->getUploadedFiles()->$_FILES['desc'];
-    $cat = $request->getUploadedFiles()->$_FILES['category'];
-    $cat_slug = $request->getUploadedFiles()->$_FILES['category_slug'];
+
 
     var_dump($request->getUploadedFiles());
     $posts = new Post;
@@ -44,10 +43,7 @@ if($request->getMethod() == 'POST') {
     $posts->cover = 'cover';
     $posts->saveOrFail();
 
-    $categories = new Category();
-    $categories->title = $cat;
-    $categories->key = $cat_slug;
-    $categories->save();
+
 }
     /*$category_post = new Category_post();
     $category_post->post_id = $posts->id;

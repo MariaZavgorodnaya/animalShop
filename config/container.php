@@ -7,6 +7,10 @@ use Aura\Di\ContainerBuilder;
 $builder = new ContainerBuilder();
 $container = $builder->newInstance();
 
+$container->set(\NtSchool\Action\BlogByCategoryAction::class, function () use ($renderer) {
+    return new \NtSchool\Action\BlogByCategoryAction($renderer);
+});
+
 $container->set(\NtSchool\Action\HomeAction::class, function () use ($renderer) {
     return new \NtSchool\Action\HomeAction($renderer);
 });

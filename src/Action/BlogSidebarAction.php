@@ -4,6 +4,7 @@ namespace NtSchool\Action;
 
 use Illuminate\Database\Capsule\Manager;
 use Illuminate\Pagination\Paginator;
+use NtSchool\Model\Category;
 use NtSchool\Model\Post;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -29,11 +30,17 @@ final class BlogSidebarAction
         $posts = new Paginator(Post::skip($offset)->take($postPerPage)->orderBy('id','DESC')->get(),
             $postPerPage,
             $page);
+
         $sidebar_posts = Post::take($postPerPage)->orderBy('id','DESC')->get();
+
+        $categories = Category::all();
+
+
         return $this->renderer->make('blog.blog-sidebar',
             ['title' => 'Blog',
                 'posts' => $posts,
                 'sidebar_posts' => $sidebar_posts,
+                'categories' => $categories,
                 'pages' => $pages]);
     }
 }
