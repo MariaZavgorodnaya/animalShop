@@ -3,17 +3,31 @@
 /** @var $renderer \Illuminate\View\Factory */
 
 use Aura\Di\ContainerBuilder;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 $builder = new ContainerBuilder();
 $container = $builder->newInstance();
 
+$container->set('logger', function(){
+    $log = new Logger('main-logger');
+    $log->pushHandler(new StreamHandler(__DIR__.'/../resources/logs/logs.log'));
+    $logger = new \NtSchool\Monolog($log);
+    return $logger;
+});
+/*$container->set('logger', function(){
+    $log = new \Wa72\SimpleLogger\FileLogger(__DIR__.'/../resources/logs/logs2.log');
+    $logger = new \NtSchool\SimpleLogger($log);
+    return $logger;
+});*/
 $container->set(\NtSchool\Action\BlogByCategoryAction::class, function () use ($renderer) {
     return new \NtSchool\Action\BlogByCategoryAction($renderer);
 });
 
-$container->set(\NtSchool\Action\HomeAction::class, function () use ($renderer) {
-    return new \NtSchool\Action\HomeAction($renderer);
+$container->set(\NtSchool\Action\HomeAction::class, function () use ($renderer, $container) {
+    return new \NtSchool\Action\HomeAction($renderer, $container->get('logger'));
 });
+
 $container->set(\NtSchool\Action\ProductsAction::class, function () use ($renderer) {
     return new \NtSchool\Action\ProductsAction($renderer);
 });
