@@ -26,9 +26,10 @@ Illuminate\Database\Capsule\Manager::schema()->create('category_post', function 
     $table->timestamps();
     $table->primary(['post_id', 'category_id']);
 });*/
-$post = new \NtSchool\Model\Post();
-$post->title = 'Title';
-$post->content = 'content';
-$post->description = 'desc';
-$post->cover = 'cover';
-$post->save();
+Illuminate\Database\Capsule\Manager::schema()->create('users', function ($table) {
+    $table->integer('id');
+    $table->string('name');
+    $table->string('password');
+    $table->timestamps();
+    $table->primary(['id']);
+});
