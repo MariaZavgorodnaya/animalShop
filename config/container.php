@@ -11,6 +11,23 @@ use loggers\MonologAdapter;
 $builder = new ContainerBuilder();
 $container = $builder->newInstance();
 
+$container->set('validator', function () use ($capsule) {
+    //путь до языковых файлов
+    $filesystem = new Illuminate\Filesystem\Filesystem();
+    $loader = new Illuminate\Translation\FileLoader($filesystem, dirname(dirname(__FILE__)) . '/resources/lang');
+    $loader->addNamespace('lang', dirname(dirname(__FILE__)) . '/resources/lang');
+    $loader->load($lang = 'ru', $group = 'validation', $namespace = 'lang');
+//иниц. переводчик
+    $factory = new Illuminate\Translation\Translator($loader, 'ru');
+    $validator = new Illuminate\Validation\Factory($factory);
+//подключение к базе данных для валидатора и иниц. валидатор
+    $databasePresenceVerifier = new \Illuminate\Validation\DatabasePresenceVerifier($capsule->getDatabaseManager());
+    $validator->setPresenceVerifier($databasePresenceVerifier);
+
+    return $validator;
+});
+
+
 $container->set('monolog-logger', function () {
     $log = new Logger('name');
     $log->pushHandler(new StreamHandler(__DIR__ . '/../resources/logs/logs.log'));
@@ -105,8 +122,8 @@ $container->set(\NtSchool\Action\AdminEditAction::class, function () use ($rende
 $container->set(\NtSchool\Action\AdminInboxAction::class, function () use ($renderer) {
     return new \NtSchool\Action\AdminInboxAction($renderer);
 });
-$container->set(\NtSchool\Action\AdminSignUpAction::class, function () use ($renderer) {
-    return new \NtSchool\Action\AdminSignUpAction($renderer);
+$container->set(\NtSchool\Action\AdminSignUpAction::class, function () use ($renderer, $container) {
+    return new \NtSchool\Action\AdminSignUpAction($renderer, $container->get('validator'));
 });
 $container->set(\NtSchool\Action\AdminSignInAction::class, function () use ($renderer) {
     return new \NtSchool\Action\AdminSignInAction($renderer);

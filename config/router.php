@@ -25,8 +25,14 @@ $router->get('admin', '/admin', \NtSchool\Action\AdminIndexAction::class);
 $router->get('admin-profile', '/admin-profile', \NtSchool\Action\AdminProfileAction::class);
 $router->get('admin-edit', '/admin-profile-edit', \NtSchool\Action\AdminEditAction::class);
 $router->get('admin-inbox', '/admin-inbox', \NtSchool\Action\AdminInboxAction::class);
-$router->get('admin-signUp', '/admin-signup', \NtSchool\Action\AdminSignUpAction::class);
+
+$router->get('admin-get-signUp', '/admin-signup', \NtSchool\Action\AdminSignUpAction::class);
+$router->post('admin-signUp', '/admin-signup', \NtSchool\Action\AdminSignUpAction::class);
+
 $router->get('admin-signIn', '/admin-signin', \NtSchool\Action\AdminSignInAction::class);
+$router->post('admin-post-signIn', '/admin-signin', \NtSchool\Action\AdminSignInAction::class);
+
+
 $router->get('admin-posts', '/admin-posts', \NtSchool\Action\AdminPostsAction::class);
 $router->get('admin-get-post', '/admin-post', \NtSchool\Action\AdminPostAction::class);
 $router->post('admin-post', '/admin-post', \NtSchool\Action\AdminPostAction::class);

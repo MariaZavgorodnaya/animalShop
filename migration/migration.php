@@ -27,9 +27,9 @@ Illuminate\Database\Capsule\Manager::schema()->create('category_post', function 
     $table->primary(['post_id', 'category_id']);
 });*/
 Illuminate\Database\Capsule\Manager::schema()->create('users', function ($table) {
-    $table->integer('id');
+    $table->increments('id');
     $table->string('name');
     $table->string('password');
     $table->timestamps();
-    $table->primary(['id']);
+
 });
