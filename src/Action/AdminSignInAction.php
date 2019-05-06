@@ -16,8 +16,10 @@ final class AdminSignInAction
 
     public function __invoke(ServerRequestInterface $request)
     {
-        //$slug = $request->getAttribute('slug');
+        $params = $request->getMethod();
+        if($params === 'POST'){
 
+        }
         return $this->renderer->make('admin.admin-signIn', ['title' => 'Sign in']);
     }
 }

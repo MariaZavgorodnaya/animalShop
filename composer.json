@@ -15,6 +15,11 @@
         "vlucas/phpdotenv": "^3.3",
         "illuminate/pagination": "^5.8",
         "monolog/monolog": "^1.24",
-        "wa72/simplelogger": "^1.1"
+        "wa72/simplelogger": "^1.1",
+        "mashaz/notifier-library": "^1.1.2",
+        "illuminate/validation": "^5.8",
+        "illuminate/translation": "^5.8",
+        "caouecs/laravel-lang": "^4.0"
+
     }
 }
