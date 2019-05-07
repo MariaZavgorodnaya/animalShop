@@ -11,24 +11,40 @@
                             Sign In to Your Account
                         </h4>
                         <hr class="bottommargin_30">
-                        <div class="wrap-forms">
-                            <form>
+                            <form method="post">
                                 <div class="row">
+                                    <div class="wrap-forms">
+
+                                            @if($errors !== null && $errors->has('email'))
+                                                @foreach($errors->get('email') as $error)
+                                                    {{$error}}<br>
+                                                @endforeach
+                                            @endif
                                     <div class="col-sm-12">
                                         <div class="form-group has-placeholder">
                                             <label for="login-email">Email address</label>
                                             <i class="grey fa fa-envelope-o"></i>
-                                            <input type="email" class="form-control" id="login-email" placeholder="Email Address">
+                                            <input type="email" class="form-control" name="email" value = '{{$params['email']}}' id="login-email" placeholder="Email Address">
                                         </div>
 
                                     </div>
                                 </div>
                                 <div class="row">
+                                    @if($messages['password']!== null)
+                                        @foreach($messages['password'] as $message)
+                                            {{$message}}<br>
+                                        @endforeach
+                                    @endif
+                                        @if($errors !== null && $errors->has('password'))
+                                            @foreach($errors->get('password') as $error)
+                                                {{$error}}<br>
+                                            @endforeach
+                                        @endif
                                     <div class="col-sm-12">
                                         <div class="form-group has-placeholder">
                                             <label for="login-password">Password</label>
                                             <i class="grey fa fa-pencil-square-o"></i>
-                                            <input type="password" class="form-control" id="login-password" placeholder="Password">
+                                            <input type="password" class="form-control" name="password" id="login-password" placeholder="Password">
                                         </div>
                                     </div>
                                 </div>
@@ -41,7 +57,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="theme_button block_button color1">Log In</button>
+                                <input type="submit" class="theme_button block_button color1">
                             </form>
                         </div>
 
