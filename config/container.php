@@ -116,8 +116,8 @@ $container->set(\NtSchool\Action\AdminIndexAction::class, function () use ($rend
 $container->set(\NtSchool\Action\AdminProfileAction::class, function () use ($renderer) {
     return new \NtSchool\Action\AdminProfileAction($renderer);
 });
-$container->set(\NtSchool\Action\AdminEditAction::class, function () use ($renderer) {
-    return new \NtSchool\Action\AdminEditAction($renderer);
+$container->set(\NtSchool\Action\AdminEditAction::class, function () use ($renderer, $container) {
+    return new \NtSchool\Action\AdminEditAction($renderer, $container->get('validator'));
 });
 $container->set(\NtSchool\Action\AdminInboxAction::class, function () use ($renderer) {
     return new \NtSchool\Action\AdminInboxAction($renderer);
@@ -125,8 +125,8 @@ $container->set(\NtSchool\Action\AdminInboxAction::class, function () use ($rend
 $container->set(\NtSchool\Action\AdminSignUpAction::class, function () use ($renderer, $container) {
     return new \NtSchool\Action\AdminSignUpAction($renderer, $container->get('validator'));
 });
-$container->set(\NtSchool\Action\AdminSignInAction::class, function () use ($renderer) {
-    return new \NtSchool\Action\AdminSignInAction($renderer);
+$container->set(\NtSchool\Action\AdminSignInAction::class, function () use ($renderer, $container) {
+    return new \NtSchool\Action\AdminSignInAction($renderer, $container->get('validator'));
 });
 $container->set(\NtSchool\Action\AdminPostsAction::class, function () use ($renderer) {
     return new \NtSchool\Action\AdminPostsAction($renderer);
