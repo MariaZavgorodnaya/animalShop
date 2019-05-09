@@ -3,6 +3,7 @@
 namespace NtSchool\Action;
 
 use Dotenv\Exception\ValidationException;
+use NtSchool\Model\Profile;
 use NtSchool\Model\User;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -34,6 +35,11 @@ try{
     $user->name = $params['email'];
     $user->password = password_hash($params['password'], PASSWORD_ARGON2I);
     $user->save();
+    $profile = new Profile();
+    $profile->email = $params['email'];
+    $profile->password = password_hash($params['password'], PASSWORD_ARGON2I);
+    $profile->save();
+
 
         } catch(\Illuminate\Validation\ValidationException $e) {
     $errors = $e->validator->errors();
