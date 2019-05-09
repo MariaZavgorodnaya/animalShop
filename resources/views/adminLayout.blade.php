@@ -18,12 +18,12 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/main.css" class="color-switcher-link">
-    <link rel="stylesheet" href="css/dashboard.css" class="color-switcher-link">
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/main.css" class="color-switcher-link">
+    <link rel="stylesheet" href="/css/dashboard.css" class="color-switcher-link">
+    <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
 
     <!--[if lt IE 9]>
     <script src="js/vendor/html5shiv.min.js"></script>
@@ -809,27 +809,27 @@
 
 
 <!-- template init -->
-<script src="js/compressed.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/compressed.js"></script>
+<script src="/js/main.js"></script>
 
 <!-- dashboard libs -->
 
 <!-- events calendar -->
-<script src="js/admin/moment.min.js"></script>
-<script src="js/admin/fullcalendar.min.js"></script>
+<script src="/js/admin/moment.min.js"></script>
+<script src="/js/admin/fullcalendar.min.js"></script>
 <!-- range picker -->
-<script src="js/admin/daterangepicker.js"></script>
+<script src="/js/admin/daterangepicker.js"></script>
 
 <!-- charts -->
-<script src="js/admin/Chart.bundle.min.js"></script>
+<script src="/js/admin/Chart.bundle.min.js"></script>
 <!-- vector map -->
-<script src="js/admin/jquery-jvectormap-2.0.3.min.js"></script>
-<script src="js/admin/jquery-jvectormap-world-mill.js"></script>
+<script src="/js/admin/jquery-jvectormap-2.0.3.min.js"></script>
+<script src="/js/admin/jquery-jvectormap-world-mill.js"></script>
 <!-- small charts -->
-<script src="js/admin/jquery.sparkline.min.js"></script>
+<script src="/js/admin/jquery.sparkline.min.js"></script>
 
 <!-- dashboard init -->
-<script src="js/admin.js"></script>
+<script src="/js/admin.js"></script>
 
 </body>
 

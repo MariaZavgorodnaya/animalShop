@@ -25,11 +25,30 @@ Illuminate\Database\Capsule\Manager::schema()->create('category_post', function 
     $table->integer('category_id');
     $table->timestamps();
     $table->primary(['post_id', 'category_id']);
-});*/
+});
 Illuminate\Database\Capsule\Manager::schema()->create('users', function ($table) {
     $table->increments('id');
     $table->string('name');
     $table->string('password');
     $table->timestamps();
 
+});*/
+Illuminate\Database\Capsule\Manager::schema()->create('profiles', function ($table) {
+    $table->increments('id');
+    $table->binary('picture');
+    $table->string('country');
+    $table->string('company');
+    $table->string('position');
+    $table->string('number');
+    $table->string('mobile');
+    $table->string('email');
+    $table->string('address');
+    $table->string('password');
+    $table->string('facebook');
+    $table->string('twitter');
+    $table->string('linkedln');
+    $table->string('instagram');
+    $table->primary('id');
+    $table->unique('email');
+    $table->timestamps();
 });
