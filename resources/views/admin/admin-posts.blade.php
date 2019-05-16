@@ -22,7 +22,8 @@
                                 <form action="./" class="form-inline filters-form">
 											<span>
 												<label class="grey" for="with-selected">With Selected:</label>
-												<select class="form-control with-selected" name="with-selected" id="with-selected">
+												<select class="form-control with-selected" name="with-selected"
+                                                        id="with-selected">
 													<option value="">-</option>
 													<option value="approve">Approve</option>
 													<option value="publish">Publish</option>
@@ -60,7 +61,8 @@
                                         <!-- <div class="form-group-wrap"> -->
                                         <div class="form-group">
                                             <label class="sr-only" for="widget-search">Search for:</label>
-                                            <input id="widget-search" type="text" value="" name="search" class="form-control" placeholder="Search Keyword">
+                                            <input id="widget-search" type="text" value="" name="search"
+                                                   class="form-control" placeholder="Search Keyword">
                                         </div>
                                         <button type="submit" class="theme_button color1">Search</button>
                                         <!-- </div> -->
@@ -85,14 +87,16 @@
                                     <th>Categories:</th>
                                     <th>Status:</th>
                                 </tr>
+                                @foreach($users as $user)
                                 <tr class="item-editable">
                                     <td class="media-middle text-center">
                                         <input type="checkbox">
                                     </td>
+
                                     <td class="media-middle">
                                         <h5>
-                                            <a href="admin_post.html">
-                                                Consectetur adipisicing elit
+                                            <a href="/admin-post/{{$user->id}}">
+                                                {{ $user->title }}
                                             </a>
                                         </h5>
                                     </td>
@@ -103,14 +107,16 @@
                                             </div>
                                             <div class="media-body">
                                                 <h5>
-                                                    <a href="admin_profile.html">Alex Walker</a>
+                                                    <a href="admin_profile.html">{{$user->name}}</a>
                                                 </h5>
-                                                &lt;email@example.com&gt;
+
                                             </div>
                                         </div>
                                     </td>
                                     <td class="media-middle">
-                                        <time datetime="2017-02-08T20:25:23+00:00" class="entry-date">08.02.2017 at 20:25</time>
+                                        <p class="entry-date">{{$user->publish_create}} at
+                                            {{$user->publish_time}}
+                                        </p>
                                     </td>
                                     <td class="media-middle">
                                         uncategorized, category1
@@ -119,180 +125,10 @@
                                         Published
                                     </td>
                                 </tr>
-                                <tr class="item-editable">
-                                    <td class="media-middle text-center">
-                                        <input type="checkbox">
-                                    </td>
-                                    <td class="media-middle">
-                                        <h5>
-                                            <a href="admin_post.html">
-                                                Inventore accusamus illo
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <img src="images/team/02.jpg" alt="...">
-                                            </div>
-                                            <div class="media-body">
-                                                <h5>
-                                                    <a href="admin_profile.html">Janet C. Donnalds</a>
-                                                </h5>
-                                                &lt;newemail@example.com&gt;
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="media-middle">
-                                        <time datetime="2017-02-08T20:25:23+00:00" class="entry-date">08.02.2017 at 20:25</time>
-                                    </td>
-                                    <td class="media-middle">
-                                        category name, new category
-                                    </td>
-                                    <td class="media-middle">
-                                        Published
-                                    </td>
-                                </tr>
-                                <tr class="item-editable">
-                                    <td class="media-middle text-center">
-                                        <input type="checkbox">
-                                    </td>
-                                    <td class="media-middle">
-                                        <h5>
-                                            <a href="admin_post.html">
-                                                Cadipisicing elit
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <img src="images/team/03.jpg" alt="...">
-                                            </div>
-                                            <div class="media-body">
-                                                <h5>
-                                                    <a href="admin_profile.html">Victoria Grow</a>
-                                                </h5>
-                                                &lt;anotheremail@example.com&gt;
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="media-middle">
-                                        <time datetime="2017-02-08T20:25:23+00:00" class="entry-date">08.02.2017 at 20:25</time>
-                                    </td>
-                                    <td class="media-middle">
-                                        categ1, categ2, categ3
-                                    </td>
-                                    <td class="media-middle">
-                                        Review
-                                    </td>
-
-                                </tr>
-                                <tr class="item-editable">
-                                    <td class="media-middle text-center">
-                                        <input type="checkbox">
-                                    </td>
-                                    <td class="media-middle">
-                                        <h5>
-                                            <a href="admin_post.html">
-                                                Consectetur adipisicing elit
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <img src="images/team/01.jpg" alt="...">
-                                            </div>
-                                            <div class="media-body">
-                                                <h5>
-                                                    <a href="admin_profile.html">Alex Walker</a>
-                                                </h5>
-                                                &lt;email@example.com&gt;
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="media-middle">
-                                        <time datetime="2017-02-08T20:25:23+00:00" class="entry-date">08.02.2017 at 20:25</time>
-                                    </td>
-                                    <td class="media-middle">
-                                        uncategorized, category1
-                                    </td>
-                                    <td class="media-middle">
-                                        Published
-                                    </td>
-                                </tr>
-                                <tr class="item-editable">
-                                    <td class="media-middle text-center">
-                                        <input type="checkbox">
-                                    </td>
-                                    <td class="media-middle">
-                                        <h5>
-                                            <a href="admin_post.html">
-                                                Inventore accusamus illo
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <img src="images/team/02.jpg" alt="...">
-                                            </div>
-                                            <div class="media-body">
-                                                <h5>
-                                                    <a href="admin_profile.html">Janet C. Donnalds</a>
-                                                </h5>
-                                                &lt;newemail@example.com&gt;
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="media-middle">
-                                        <time datetime="2017-02-08T20:25:23+00:00" class="entry-date">08.02.2017 at 20:25</time>
-                                    </td>
-                                    <td class="media-middle">
-                                        category name, new category
-                                    </td>
-                                    <td class="media-middle">
-                                        Draft
-                                    </td>
-                                </tr>
-                                <tr class="item-editable">
-                                    <td class="media-middle text-center">
-                                        <input type="checkbox">
-                                    </td>
-                                    <td class="media-middle">
-                                        <h5>
-                                            <a href="admin_post.html">
-                                                Cadipisicing elit
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <img src="images/team/03.jpg" alt="...">
-                                            </div>
-                                            <div class="media-body">
-                                                <h5>
-                                                    <a href="admin_profile.html">Victoria Grow</a>
-                                                </h5>
-                                                &lt;anotheremail@example.com&gt;
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="media-middle">
-                                        <time datetime="2017-02-08T20:25:23+00:00" class="entry-date">08.02.2017 at 20:25</time>
-                                    </td>
-                                    <td class="media-middle">
-                                        categ1, categ2, categ3
-                                    </td>
-                                    <td class="media-middle">
-                                        Published
-                                    </td>
-
-                                </tr>
+                                @endforeach
                             </table>
                         </div>
+
                         <!-- .table-responsive -->
                     </div>
                     <!-- .with_border -->
@@ -305,22 +141,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="pagination highlightlinks">
-                                <li class="disabled">
-                                    <a href="#">
-                                        <span class="sr-only">Prev</span>
-                                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li>
-                                    <a href="#">
-                                        <span class="sr-only">Next</span>
-                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                    </a>
-                                </li>
+
+                                @for($i = 1; $i <= $pages; $i++)
+
+                                    <li class="@if($i == $users->currentPage()) active @endif"><a href="?page={{$i}}">{{$i}}</a></li>
+                                    @endfor
+
                             </ul>
                         </div>
                         <div class="col-md-6 text-md-right">

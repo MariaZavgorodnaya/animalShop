@@ -36,10 +36,13 @@ $router->post('admin-signUp', '/admin-signup', \NtSchool\Action\AdminSignUpActio
 $router->get('admin-get-signIn', '/admin-signin', \NtSchool\Action\AdminSignInAction::class);
 $router->post('admin-signIn', '/admin-signin', \NtSchool\Action\AdminSignInAction::class);
 
-
 $router->get('admin-posts', '/admin-posts', \NtSchool\Action\AdminPostsAction::class);
-$router->get('admin-get-post', '/admin-post', \NtSchool\Action\AdminPostAction::class);
-$router->post('admin-post', '/admin-post', \NtSchool\Action\AdminPostAction::class);
+
+$router->get('admin-post', '/admin-post/{id}', \NtSchool\Action\AdminPostAction::class);
+
+$router->get('admin-post-create-get-form', '/admin-post-create', \NtSchool\Action\AdminPostCreateAction::class);
+$router->post('admin-post-create', '/admin-post-create', \NtSchool\Action\AdminPostCreateAction::class);
+
 $router->get('admin-products', '/admin-products', \NtSchool\Action\AdminProductsAction::class);
 $router->get('admin-product', '/admin-product', \NtSchool\Action\AdminProductAction::class);
 $router->get('admin-orders', '/admin-orders', \NtSchool\Action\AdminOrdersAction::class);

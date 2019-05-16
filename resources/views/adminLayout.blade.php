@@ -217,7 +217,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/admin-edit">
+                                        <a href="/admin-profile-edit/{id}">
                                             Edit Profile
                                         </a>
                                     </li>
@@ -250,7 +250,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/admin-post">
+                                        <a href="/admin-post-create">
                                             Single Post
                                         </a>
                                     </li>

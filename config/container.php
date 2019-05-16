@@ -131,8 +131,11 @@ $container->set(\NtSchool\Action\AdminSignInAction::class, function () use ($ren
 $container->set(\NtSchool\Action\AdminPostsAction::class, function () use ($renderer) {
     return new \NtSchool\Action\AdminPostsAction($renderer);
 });
-$container->set(\NtSchool\Action\AdminPostAction::class, function () use ($renderer) {
-    return new \NtSchool\Action\AdminPostAction($renderer);
+$container->set(\NtSchool\Action\AdminPostAction::class, function () use ($renderer, $container) {
+    return new \NtSchool\Action\AdminPostAction($renderer, $container->get('validator'));
+});
+$container->set(\NtSchool\Action\AdminPostCreateAction::class, function () use ($renderer, $container) {
+    return new \NtSchool\Action\AdminPostCreateAction($renderer, $container->get('validator'));
 });
 $container->set(\NtSchool\Action\AdminProductsAction::class, function () use ($renderer) {
     return new \NtSchool\Action\AdminProductsAction($renderer);
