@@ -32,7 +32,7 @@ Illuminate\Database\Capsule\Manager::schema()->create('users', function ($table)
     $table->string('password');
     $table->timestamps();
 
-});*/
+});
 Illuminate\Database\Capsule\Manager::schema()->create('profiles', function ($table) {
     $table->increments('id');
     $table->binary('picture');
@@ -51,4 +51,4 @@ Illuminate\Database\Capsule\Manager::schema()->create('profiles', function ($tab
     $table->primary('id');
     $table->unique('email');
     $table->timestamps();
-});
+});*/
